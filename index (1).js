@@ -6,6 +6,11 @@ for(var i = 0; i < numeroDeTambores; i++){
     })
    
 }
+document.addEventListener("keydown", function(event){
+    hacersonido(event.key);
+    botonAnimado(event.key);
+}); 
+
 
 function hacersonido(tecla){
     switch(tecla){
@@ -40,4 +45,12 @@ function hacersonido(tecla){
 
             default: console.log(tecla);
     }
+}
+function botonAnimado(teclaPresionada){
+    var botonActivo = document.querySelector("." + teclaPresionada);
+    botonActivo.classList.add("pressed");
+    setTimeout(function(){
+        botonActivo.classList.remove("pressed");
+    }, 100);
+
 }
